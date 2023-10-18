@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <title>Manager Business</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Recuperacion de Contraseña</h2>
+        <form method="POST" action="/procesar_formulario">
+            <div class="form-group">
+                <label for="email">Introduce tu correo para recibir el codigo:</label>
+                <input type="email" name="recover_password_email" required>
+            </div>
+            <button type="submit" id="recover_password_submit">Enviar</button>
+        </form>
+    </div>
+
+    <?php
+    include 'php\recuperar_contraseña.php';
+    ?>
+</body>
+</html>

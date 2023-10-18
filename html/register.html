@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <title>Manager Business</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro Manager Business</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name_register" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email_register" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password_register" required>
+                <span id="checkeye_register" class="toggle-password">Mostrar Contraseña</span>
+            </div>
+            <div class="form-group">
+                <label for=" verify_password">Verificar Contraseña:</label>
+                <input type="password" id="password_register_verify" required>
+                <span id="checkeye2_register" class="toggle-password">Mostrar Contraseña Verificada</span>
+            </div>
+        </form>
+        <button type="submit" id="signup_register">Ingresar</button>
+    </div>
+    <script src="/js/user_register.js"></script>
+</body>
+</html>
