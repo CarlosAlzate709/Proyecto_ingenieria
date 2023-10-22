@@ -66,3 +66,9 @@ button:hover {
     cursor: pointer;
     color: rgb(36, 36, 39);
 }
+
+
+.arrowBack{
+    display: flex;
+    align-items: flex-end;
+}

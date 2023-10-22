@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/login.css">
+    
     <title>Manager Business</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Ingreso a Manager business</h2>
-        <form>
-            <div class="form-group">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name_login">
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form id="formulario" action="">
+                    <h2>Manager Bussines</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" id="inputEmail" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">                       
+                        
+                        <ion-icon name="eye-outline" id="show"  style="cursor: pointer;"></ion-icon>
+                        <input type="password" id="pass" required>
+                        <label for="">Password</label>
+                    </div>
+                    
+                    <button type="submit" id="btn_log">Log in</button>
+                    <div class="register">
+                        <p>Don't have a account <a href="register.html">Register</a></p>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email_login">
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password_login">
-                <span id="checkeye_login" class="toggle-password">Mostrar Contraseña</span>
-                <br>
-                <br>
-                <span id="remember_password" class="toggle-password">¿Se te ha olvidado tu contraseña?</span>
-            </div>
-            <button type="submit" id="login_login">Ingresar</button>
-        </form>
-        <button type="submit" id="register_login">Registro</button>
-    </div>
-    <script src="/js/index.js"></script>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/styles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
