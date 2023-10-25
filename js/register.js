@@ -7,7 +7,7 @@ formulario.addEventListener('submit', async (e) => {
     e.preventDefault()
     if(formulario.passTwo.value == formulario.pass.value){
 
-        await fetch('https://sheet.best/api/sheets/5310064d-0a65-48fb-86ee-9a36fc746601', {
+        await fetch('https://sheet.best/api/sheets/de2d3102-bc15-4ca8-b80d-fad7f0333bac', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -16,7 +16,8 @@ formulario.addEventListener('submit', async (e) => {
             body: JSON.stringify({
                 "USUARIO": formulario.username.value,
                 "CONTRASENA": formulario.pass.value,
-                "GMAIL": formulario.email.value
+                "GMAIL": formulario.email.value,
+                "Cedula": ''
             })
         })
     
