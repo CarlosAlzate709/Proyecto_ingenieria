@@ -10,6 +10,7 @@
     <!--  CSS -->
     <link rel="stylesheet" href="/css/menu.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/menu_pago.css">
     <!--  JS -->
     <script src="/js/menu.js" defer></script>
 </head>
@@ -57,7 +58,22 @@
     </div>
 
     <section class="main">
-        
+        <div class="pagina">
+            <ul class="list-view">
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+            <div class="Registradora">
+                <span class="label">Total de productos: </span>
+                <span class="valores">0</span>
+                <span class="label">Total a pagar: </span>
+                <span class="valores">0</span>
+                <input type="number" id="pago" placeholder="ingrese el dinero">
+                <br>
+                <button type="submit" id="btn_pago">PAGAR</button>
+            </div>
+        </div>
     </section>
 </body>
 </html>

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.pagina{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.Registradora{
+    margin-right: 5vh;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #000000;
+    width: 60vh;
+    height: 60vh;
+    float: right;
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.label {
+    color: black;
+    margin-top: 2vh;
+}
+
+.valores {
+    color: black;
+    margin-top: 2vh;
+}
+
+#pago { 
+    margin-top: 2vh;
+    position: relative;
+    top: 2px;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+#pago:hover {
+    transition: 0.6s;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#btn_pago {
+    background-color: #070707; /* Color de fondo */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado en el texto */
+    display: inline-block; /* Mostrar como elemento en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 5px 2px; /* Margen exterior */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+#btn_pago:hover {
+    transition: 0.6s;
+    background-color: white;
+    color: black;
+}
+
+.list-view{
+    float: left;
+    width: 50vh;
+    margin-top: 2   vh;
+    margin-left: 45vh;  
+    color: #000000;
+    list-style-type: none;
+    padding: 0; 
+}
+
+.list-view li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #000000; 
+    color: white; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.list-view li:hover {
+    transition: 0.6s;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+
