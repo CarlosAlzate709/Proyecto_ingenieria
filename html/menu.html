@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/menu_pago.css">
     <!--  JS -->
     <script src="/js/menu.js" defer></script>
+    <script src="/js/menu_pago.js" defer></script>
 </head>
 <body>
 
@@ -32,27 +33,26 @@
         <div class="menu">
             <div class="enlace">
                 <i class="bx bx-grid-alt"></i>
-                <span>Dashboard</span>
+                <span id="span_menu_pago">Menu</span>
             </div>
-
             <div class="enlace">
                 <i class="bx bx-user"></i>
-                <span>Usuarios</span>
+                <span id="span_usuarios">Usuarios</span>
             </div>
 
             <div class="enlace">
                 <i class="bx bx-grid-alt"></i>
-                <span>Stock</span>
+                <span id="span_stock">Stock</span>
             </div>
 
             <div class="enlace">
                 <i class="bx bx-message-square"></i>
-                <span>Ventas</span>
+                <span id="span_ventas">Ventas</span>
             </div>
 
             <div class="enlace">
                 <i class="bx bx-cog"></i>
-                <span>Analitica</span>
+                <span id="span_analitica">Analitica</span>
             </div>
         </div>
     </div>
@@ -66,10 +66,10 @@
             </ul>
             <div class="Registradora">
                 <span class="label">Total de productos: </span>
-                <span class="valores">0</span>
+                <span class="valores" id="lbl_total_productos">0</span>
                 <span class="label">Total a pagar: </span>
-                <span class="valores">0</span>
-                <input type="number" id="pago" placeholder="ingrese el dinero">
+                <span class="valores" id="lbl_totalpagar">0</span>
+                <input type="number" id="input_pago" placeholder="ingrese el dinero">
                 <br>
                 <button type="submit" id="btn_pago">PAGAR</button>
             </div>

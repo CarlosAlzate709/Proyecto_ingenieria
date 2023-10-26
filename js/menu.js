@@ -23,3 +23,17 @@ enlacesMenu.forEach(enlace => {
         iconoMenu.classList.replace("bx-menu", "bx-x")
     })
 })
+
+const menu_pago = document.getElementById('span_menu_pago');
+const usuarios = document.getElementById('span_usuarios');
+const Stock = document.getElementById('span_stock');
+const ventas = document.getElementById('span_ventas');
+const analitica = document.getElementById('span_analitica');
+
+menu_pago.addEventListener('click', async (e) => {
+    window.location.href = "/html/menu.html";
+})
+
+ventas.addEventListener('click', async (e) => {
+    window.location.href = "/html/ventas.html";
+})

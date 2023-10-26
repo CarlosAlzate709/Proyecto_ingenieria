@@ -2,6 +2,7 @@
 
 .pagina{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 450vh;
 }
 
 
@@ -19,6 +20,7 @@
     align-items: center;
     justify-content: center;
 }
+
 
 .label {
     color: black;

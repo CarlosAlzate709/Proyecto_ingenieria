@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/ventas.css">
     <!--  JS -->
     <script src="/js/menu.js" defer></script>
+    <script src="/js/ventas.js" defer></script>
 </head>
 <body>
     <div class="menu-dashboard">
@@ -31,27 +32,27 @@
         <section class="menu">
             <div class="enlace">
                 <i class="bx bx-grid-alt"></i>
-                <span>Dashboard</span>
+                <span id="span_menu_pago">Menu</span>
             </div>
 
             <div class="enlace">
                 <i class="bx bx-user"></i>
-                <span>Usuarios</span>
+                <span id="span_usuarios">Usuarios</span>
             </div>
 
             <div class="enlace">
                 <i class="bx bx-grid-alt"></i>
-                <span>Stock</span>
+                <span id="span_stock">Stock</span>
             </div>
 
             <div class="enlace">
                 <i class="bx bx-message-square"></i>
-                <span>Ventas</span>
+                <span id="span_ventas">Ventas</span>
             </div>
 
             <div class="enlace">
                 <i class="bx bx-cog"></i>
-                <span>Analitica</span>
+                <span id="span_analitica">Analitica</span>
             </div>
         </div>
     </section>
@@ -77,11 +78,11 @@
                 <div class="contenedor-borde">
                 <label for="nombre_del_producto" id="lbl_nombre">Nombre</label>
                     <br>
-                <input type="number" name="cantidad" id="cant" placeholder="cantidad">
+                <input type="number" name="cantidad" id="input_cantidad" placeholder="cantidad">
                     <br>
-                <label for="precio_de_la_cantidad">Precio de la cantidad</label>
+                <label for="precio_de_la_cantidad" id="lbl_precio_cantidad">Precio de la cantidad</label>
                     <br>
-                <button class="btn_añadir_carrito">Añadir al carrito</button>
+                <button class="añadir_carrito" id="btn_añadir_carrito">Añadir al carrito</button>
             </div>
             </section>
         </div>
