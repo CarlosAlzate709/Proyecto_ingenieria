@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dashboard</title>
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!--  CSS -->
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <!--  JS -->
+    <script src="/js/menu.js" defer></script>
+</head>
+<body>
+
+    <div class="menu-dashboard">
+        <!-- MENU USUARIO -->
+        <div class="top-menu">
+            <div class="logo">
+                <img src="/images/logo.png">
+                <span id="Nombre_usuario">Nombre de usuario</span>
+            </div>
+            <div class="toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+        
+        <!-- MENU -->
+        <div class="menu">
+            <div class="enlace">
+                <i class="bx bx-grid-alt"></i>
+                <span id="span_menu_pago">Menu</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-user"></i>
+                <span id="span_usuarios">Usuarios</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-grid-alt"></i>
+                <span id="span_stock">Stock</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-message-square"></i>
+                <span id="span_ventas">Ventas</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-cog"></i>
+                <span id="span_analitica">Analitica</span>
+            </div>
+        </div>
+    </div>
+
+   <div>
+
+<div class="container">
+    <div class="user-info">
+        <div class="img_usuario">
+            <img src="/images/logo.png" alt="Avatar de usuario">
+        </div>
+        <div class="inputbox">
+            <label for="username">Nombre de Usuario:</label>
+            <h4 id="username">Jhonatan Cadavid</h4>
+        </div>
+        <div class="inputbox">
+            <label for="cedula">Cédula:</label>
+            <h4 id="cedula">Número de Cédula</h4>
+        </div>
+        <div class="inputbox">
+            <label for="correo">Correo:</label>
+            <h4 id="correo">correo@ejemplo.com</h4>
+        </div>     
+        <div class="botones">
+            <button id="edit-button">Cambiar Datos</button>
+            <button id="logout-button">Cerrar Sesión</button>
+        </div>
+        
+    </div>
+    <div class="edit-profile">
+        <form action="" id="formulario">
+            <h2>Editar Datos</h2>
+            <div class="inputbox">
+                <label for="edit-cedula">Cédula:</label>
+                <input type="text" id="edit-cedula">
+            </div>
+            <div class="inputbox">
+                <label for="edit-password">Contraseña:</label>
+                <input type="password" id="edit-password">
+            </div>
+            <div class="inputbox">
+                <label for="edit-new-password">Nueva Contraseña:</label>
+                <input type="password" id="edit-new-password">
+            </div>
+            <div class="inputbox">
+                <label for="edit-username">Nombre de Usuario:</label>
+                <input type="text" id="edit-username">
+            </div>
+            <button id="save-button" type="submit" id="btn_submit">Cambiar Datos</button>
+        </form>
+    </div>
+</div>
