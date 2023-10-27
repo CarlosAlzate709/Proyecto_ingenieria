@@ -37,3 +37,7 @@ menu_pago.addEventListener('click', async (e) => {
 ventas.addEventListener('click', async (e) => {
     window.location.href = "/html/ventas.html";
 })
+
+Stock.addEventListener('click', ()=>{
+    window.location.href = "/html/stock.html";
+})

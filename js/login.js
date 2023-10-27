@@ -139,8 +139,8 @@ forget.addEventListener('click', async (e) => {
                 const { value: change } = await Swal.fire({
                     title: 'Buscar Usuario',
                     html:
-                        '<input id="pass1" class="swal2-input" placeholder="Nueva contraseña" />' +
-                        '<input id="pass2" class="swal2-input" placeholder="Confirmar contraseña" />',
+                        '<input id="pass1" class="swal2-input" type="password" placeholder="Nueva contraseña" />' +
+                        '<input id="pass2" class="swal2-input" type="password" placeholder="Confirmar contraseña" />',
                     showCancelButton: true,
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#000000', // Gris oscuro
