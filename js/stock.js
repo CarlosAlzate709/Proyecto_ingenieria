@@ -1,12 +1,13 @@
 
 const tbody = document.getElementById('stock');
 
+
 document.addEventListener('DOMContentLoaded', async (e) => {
 
     const response = await Data();
 
     if (response) {
-        console.log(response)
+
         response.forEach(element => {
 
             let tr = document.createElement("tr");
@@ -21,13 +22,14 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             let iconPlus = document.createElement("ion-icon");
             iconPlus.setAttribute("name", "create-outline");
             iconPlus.setAttribute("style", "cursor: pointer");
-            iconPlus.classList.add("icon-large");
+            iconPlus.classList.add("icon-large", "btn_editar");
+
 
             let iconDelete = document.createElement("ion-icon");
             iconDelete.setAttribute("name", "close-circle-outline");
             iconDelete.setAttribute("style", "cursor: pointer");
-            iconDelete.classList.add("icon-large");
-        
+            iconDelete.classList.add("icon-large", "btn_eliminar");
+
 
             let iconContainer = document.createElement("div");
             iconContainer.appendChild(iconPlus);
@@ -43,6 +45,49 @@ document.addEventListener('DOMContentLoaded', async (e) => {
         })
     }
 
+    const botonesEliminar = document.querySelectorAll('.btn_eliminar');
+
+    for (let i = 0; i < botonesEliminar.length; i++){
+        botonesEliminar[i].addEventListener('click',  function (e) {
+            const filaAEliminar = this.closest('tr');
+            if (filaAEliminar){
+                console.log(i)
+                Swal.fire({
+                    title: '¿Estás seguro de eliminarlo?',
+                    text: "No podrás revertir este proceso",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminalo'
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+
+                        let url = `${'https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3'}/${i}`
+                        const responseDelete = await fetch(url,{
+                            method: "DELETE"
+                        })
+                        if (responseDelete.ok){
+                            Swal.fire(
+                                'Borrado!',
+                                'Este elemento ha sido eliminado',
+                                'success'
+                                
+                            )                         
+                            setTimeout(() => {
+                                location.reload();
+                            }, 2000);
+                        }
+                       
+                    }
+                })
+            }
+        })
+    }
+
+
+    
+
 })
 
 
@@ -54,7 +99,6 @@ async function Data() {
         const responseJson = await response.json();
 
         if (responseJson) {
-            console.log('Consulta Exitosa');
             return responseJson;
         }
 
@@ -63,3 +107,5 @@ async function Data() {
     }
 
 }
+
+
