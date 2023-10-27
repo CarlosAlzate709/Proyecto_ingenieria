@@ -155,7 +155,12 @@ document.addEventListener('DOMContentLoaded', async (e) => {
                                 }
                             } catch (err) {
                                 console.log("Error al actualizar ", err)
-                                Swal.close();
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong!',
+                                })
+                                // Swal.close();
                             }
                         })
 
@@ -164,6 +169,65 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             }
         })
     }
+
+
+
+    const addElement = document.getElementById('btn_add');
+
+    addElement.addEventListener('click', async ()=>{
+        Swal.fire({
+            title: 'Añadir Producto',
+            html:
+                '<input id="Nombre" class="swal2-input" placeholder="Nombre" >' +
+                '<input id="Precio" class="swal2-input" placeholder="Precio" >' +
+                '<input id="Cantidad" class="swal2-input" placeholder="Cantidad" type="number">',
+            showCancelButton: true,
+            confirmButtonText: 'Agregar',
+            cancelButtonText: 'Cancelar',
+            showLoaderOnConfirm: true,
+            preConfirm: () => {
+                const Nombre = document.getElementById('Nombre').value;
+                const Cantidad = document.getElementById('Cantidad').value;
+                const Precio = document.getElementById('Precio').value;
+
+                return { Nombre, Cantidad, Precio };
+            },
+        }).then(async (result) => {
+            const Nombre = result.value.Nombre;
+            const Cantidad = result.value.Cantidad;
+            const Precio = result.value.Precio;
+            const url = ('https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3')
+            try {
+                const create = await fetch(url, {
+                    method: 'POST',
+                    mode: "cors",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        Nombre: Nombre,
+                        Cantidad: Cantidad,
+                        Precio: Precio
+                    }),
+                })
+
+                if (create.ok) {
+                    Swal.fire('Producto Agregado', '', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 4000);
+                }
+            } catch (err) {
+                console.log("Error", err)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+                Swal.close();
+            }
+        })
+    })
 })
 
 
