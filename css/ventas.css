@@ -48,7 +48,7 @@
     color: #000000;
 }
 
-.btn_añadir_carrito {
+#btn_añadir_carrito {
     background-color: #070707; /* Color de fondo */
     border: none; /* Sin borde */
     color: white; /* Color del texto */
@@ -64,13 +64,13 @@
 }
 
 /* Estilo cuando se pasa el ratón por encima del botón */
-.btn_añadir_carrito:hover {
+#btn_añadir_carrito:hover {
     background-color: white; /* Cambiar el color de fondo al pasar el ratón */
     transition: 0.3s;
     color: black;
 }
 
-#cant { 
+#input_cantidad { 
     position: relative;
     top: 2px;
     padding: 10px;
@@ -81,7 +81,7 @@
     cursor: pointer;
 }
 
-#cant:hover {
+#input_cantidad:hover {
     transition: 0.3s;
     background-color: #ffffff;
     color: #000000;
@@ -92,15 +92,11 @@
     padding: 0; /* Eliminar el relleno predeterminado de la lista */
 }
 
-/* Estilo de los elementos de la lista */
-.list-view li {
-    padding: 10px 0; /* Espaciado interno arriba y abajo */
-    border-bottom: 1px solid #ccc; /* Línea divisoria entre elementos */
-}
-
-/* Estilo del último elemento para eliminar la línea divisoria */
-.list-view li:last-child {
-    border-bottom: none;
+.list-view th, td {
+    padding: 40px;
+    padding-bottom: 5px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
 }
 
 /* Estilo del contenedor con borde */
