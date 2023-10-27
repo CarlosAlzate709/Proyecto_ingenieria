@@ -45,12 +45,14 @@ document.addEventListener('DOMContentLoaded', async (e) => {
         })
     }
 
+    ///////////// Eliminar item de stock ///////////////////////
+
     const botonesEliminar = document.querySelectorAll('.btn_eliminar');
 
-    for (let i = 0; i < botonesEliminar.length; i++){
-        botonesEliminar[i].addEventListener('click',  function (e) {
+    for (let i = 0; i < botonesEliminar.length; i++) {
+        botonesEliminar[i].addEventListener('click', function (e) {
             const filaAEliminar = this.closest('tr');
-            if (filaAEliminar){
+            if (filaAEliminar) {
                 console.log(i)
                 Swal.fire({
                     title: '¿Estás seguro de eliminarlo?',
@@ -64,21 +66,21 @@ document.addEventListener('DOMContentLoaded', async (e) => {
                     if (result.isConfirmed) {
 
                         let url = `${'https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3'}/${i}`
-                        const responseDelete = await fetch(url,{
+                        const responseDelete = await fetch(url, {
                             method: "DELETE"
                         })
-                        if (responseDelete.ok){
+                        if (responseDelete.ok) {
                             Swal.fire(
                                 'Borrado!',
                                 'Este elemento ha sido eliminado',
                                 'success'
-                                
-                            )                         
+
+                            )
                             setTimeout(() => {
                                 location.reload();
                             }, 2000);
                         }
-                       
+
                     }
                 })
             }
@@ -86,8 +88,82 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     }
 
 
-    
+    ////////////////////// Editar item de stock //////////////////////////
 
+    const editarItems = document.querySelectorAll('.btn_editar')
+
+    for (let i = 0; i < editarItems.length; i++) {
+        editarItems[i].addEventListener('click', function (e) {
+
+            const edit = this.closest('tr');
+            if (edit) {
+
+                Swal.fire({
+                    title: 'Editar Producto',
+                    html:
+                        `<input id="Nombre" class="swal2-input" placeholder="Nombre" value="${response[i].Nombre}">` +
+                        `<input id="Precio" class="swal2-input" placeholder="Precio" value="${response[i].Precio}">` +
+                        `<input id="Cantidad" class="swal2-input" placeholder="Cantidad" type="number" value="${response[i].Cantidad}">`,
+                    showCancelButton: true,
+                    confirmButtonText: 'Guardar Cambios',
+                    cancelButtonText: 'Cancelar',
+                    showLoaderOnConfirm: true,
+                    preConfirm: () => {
+                        const Nombre = document.getElementById('Nombre').value;
+                        const Cantidad = document.getElementById('Cantidad').value;
+                        const Precio = document.getElementById('Precio').value;
+
+
+                        return { Nombre, Cantidad, Precio };
+                    },
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+
+                        Swal.fire({
+                            title: 'Guardando Cambios',
+                            html: 'Por favor espere...',
+                            timer: 2000,
+                            timerProgressBar: true,
+                            onBeforeOpen: () => {
+                                Swal.showLoading();
+                            },
+                            allowOutsideClick: false,
+                        }).then(async () => {
+                            const Nombre = result.value.Nombre;
+                            const Cantidad = result.value.Cantidad;
+                            const Precio = result.value.Precio;
+                            const url = `${'https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3'}/${i}`
+                            try {
+                                const editData = await fetch(url, {
+                                    method: 'PUT',
+                                    mode: "cors",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        Nombre: Nombre,
+                                        Cantidad: Cantidad,
+                                        Precio: Precio
+                                    }),
+                                })
+
+                                if (editData.ok) {
+                                    Swal.fire('Cambios Guardados', '', 'success');
+                                    setTimeout(() => {
+                                        location.reload();
+                                    }, 4000);
+                                }
+                            } catch (err) {
+                                console.log("Error al actualizar ", err)
+                                Swal.close();
+                            }
+                        })
+
+                    }
+                });
+            }
+        })
+    }
 })
 
 
