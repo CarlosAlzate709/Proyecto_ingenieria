@@ -1,5 +1,18 @@
 /* FONTS GOOGLE */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    line-height: 1.42em;
+    color:#4B4A4B;
+    background-color:#FFDAC4;
+}
 
 /* VARIABLES */
 
@@ -10,42 +23,41 @@
     --bg-body: #C7E1FF;
 }
 
-.backgroud{
-    margin-left: 25vh;
-    width: 500vh;
-    height: 90vh;
-    display: flex;
-    justify-content: space-between;
+.main{
+    margin-left: 200px; 
+    display: inline-block;
+    justify-content:space-around;
+    padding-top: 50px;
+    align-items: flex-start;
+    height: 100vh;  
 }
+
 
 #pantalla-dividida{
     display: flex;
 }
 
 .tercer-pantalla {
-    width: 40%;
+    width: 100%;
     float: left;
-    justify-content: center; /* Centrar el contenido horizontalmente */
-    margin-bottom: 10px; /* Agrega espacio entre los elementos si lo deseas */
+    justify-content: center;
+    /* margin-bottom: 10px;  */
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    height: 100vh; /* Opcional: Asegura que la sección ocupe toda la altura de la ventana */
-    color: #000000;
+    flex-direction: row;
+    align-items:center; 
+    justify-content: space-around; 
+    height: 100vh; 
+    /* color: #000000; */
 }
 
 .pantalla-del-medio{
-    width: 60%;
-    float: left;
-    justify-content: center; /* Centrar el contenido horizontalmente */
-    margin-bottom: 10px; /* Agrega espacio entre los elementos si lo deseas */
+    width: 100%;
+    float:right;
+    justify-content: center; 
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    height: 100vh; /* Opcional: Asegura que la sección ocupe toda la altura de la ventana */
-    color: #000000;
+    align-items: center; 
+    justify-content: center; 
+    /* color: #000000; */
 }
 
 #btn_añadir_carrito {
@@ -87,16 +99,15 @@
     color: #000000;
 }
 
-.list-view {
-    list-style: none; /* Eliminar los marcadores de lista predeterminados */
-    padding: 0; /* Eliminar el relleno predeterminado de la lista */
+#lbl_nombre{
+    color: #000000;
+    font-size: 600;
+    font-weight: bold;
 }
 
-.list-view th, td {
-    padding: 40px;
-    padding-bottom: 5px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
+::placeholder{
+    color:#C7E1FF;
+    opacity: 0.7;
 }
 
 /* Estilo del contenedor con borde */
@@ -110,14 +121,82 @@
 /* Estilo de los elementos dentro del contenedor */
 .contenedor-borde label, .contenedor-borde input, .contenedor-borde button {
     display: block; /* Hacer que los elementos se muestren uno debajo del otro */
-    margin-bottom: 10px; /* Espacio entre los elementos */
+    margin-bottom: 10px; 
 }
 
 
 
+.list-view th h1 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: #FFFFFF;
+}
 
 
+.list-view {
+    text-align: left;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
+}
 
+.list-view td, .list-view th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left:2%;  
+    text-align: center;
+}
+
+.list-view th h1 {
+    
+    text-align: center;
+}
+
+.list-view tr:nth-child(odd) {
+    background-color: #FFEDD8;
+}
+
+.list-view tr:nth-child(even) {
+    background-color: #FFDAC4;
+}
+
+.list-view th {
+    background-color: #151d1b;
+}
+
+.list-view td:first-child, .list-view tr { 
+    color: #000000; 
+}
+
+.list-view ion-icon{
+    color: #350133;
+    font-size: 20px;
+}
+
+.list-view tr:hover{
+    background-color: #3d2f2f; /* Cambia el color de fondo de la fila al pasar el cursor */
+    color:#f0f0f0
+}
+
+.list-view tr:hover td:first-child,
+.list-view tr:hover ion-icon {
+    background-color: transparent; /* Restaura el fondo del primer td y el color de los íconos */
+    color: inherit; /* Restaura el color de los íconos */
+}
+
+.list-view tr{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.list-view td:last-child{
+    
+    transition: transform 0.3s;
+    
+}
 
 
 

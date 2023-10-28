@@ -42,6 +42,6 @@ Stock.addEventListener('click', ()=>{
     window.location.href = "/html/stock.html";
 })
 
-ventas.addEventListener('click', ()=>{
-    window.location.href = "/html/menu.html"
+usuarios.addEventListener('click', ()=>{
+    window.location.href = "/html/perfil.html"
 } )
