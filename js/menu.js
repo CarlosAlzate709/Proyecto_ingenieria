@@ -4,6 +4,8 @@ const iconoMenu = toggle.querySelector("i")
 const enlacesMenu = document.querySelectorAll(".enlace")
 const nombre_usuario = document.getElementById("Nombre_usuario")
 
+nombre_usuario.textContent = window.name;
+
 let account = JSON.parse(localStorage.getItem('username'));
 console.log(account)
 

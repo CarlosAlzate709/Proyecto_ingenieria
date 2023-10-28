@@ -17,6 +17,7 @@ formulario.addEventListener('submit', async (e) => {
     contenidoResponse.forEach(usuario => {
         if (usuario.GMAIL === user && usuario.CONTRASENA === password) {
             find = true;
+            window.name = usuario.USUARIO;
 
         } else if ((usuario.GMAIL === user && usuario.CONTRASENA != password) || (usuario.GMAIL != user && usuario.CONTRASENA === password)) {
             Swal.fire({
@@ -48,7 +49,6 @@ formulario.addEventListener('submit', async (e) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = "/html/menu.html";
-
             }
         })
         setTimeout(() => {
