@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             let td_nombre = document.createElement("td");
             let td_precio = document.createElement("td");
             let td_cantidad = document.createElement("td");
+            let td_agregar = document.createElement("td");
             td_nombre.textContent = element.Nombre
             td_precio.textContent = element.Precio
             td_cantidad.textContent = element.Cantidad
+            //td_agregar = 
             tr.appendChild(td_nombre);
             tr.appendChild(td_precio);
             tr.appendChild(td_cantidad);

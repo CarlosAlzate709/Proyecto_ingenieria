@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     const response = await Data();
 
     if (response) {
-
+        
         response.forEach(element => {
 
             let tr = document.createElement("tr");

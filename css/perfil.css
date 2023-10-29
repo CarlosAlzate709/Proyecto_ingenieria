@@ -88,6 +88,10 @@ body {
 
 }
 
+.user-info .botones{
+    margin-top: 30px;
+}
+
 .edit-profile{
     /* position: relative; */
     width: 400px;
@@ -121,19 +125,26 @@ body {
 }
 
 .edit-profile button{
-    width: 200px;
-    height: 50px;
-    border-radius: 40px;
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
     background: black;
     border: none;
     outline: none;
     cursor: pointer;
     font-size: 1em;
-    font-weight: 600;
     color: #FFF;
-    position: relative;
-    left: 20%;
-    margin-bottom: 5px;
+    font-weight: 600
+}
+
+.botones{
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
 }
 
 .inputbox input{

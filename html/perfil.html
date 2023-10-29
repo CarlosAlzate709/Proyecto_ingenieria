@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/perfil.css">
     <!--  JS -->
-    <script src="/js/menu.js" defer></script>
-    <script src="/js/perfil.js" defer></script>
+   
 </head>
 <body>
 
@@ -67,15 +66,15 @@
         </div>
         <div class="inputbox">
             <label for="username">Nombre de Usuario:</label>
-            <h4 id="username">Jhonatan Cadavid</h4>
+            <h4 id="username"></h4>
         </div>
         <div class="inputbox">
             <label for="cedula">Cédula:</label>
-            <h4 id="cedula">Número de Cédula</h4>
+            <h4 id="cedula"></h4>
         </div>
         <div class="inputbox">
             <label for="correo">Correo:</label>
-            <h4 id="correo">correo@ejemplo.com</h4>
+            <h4 id="correo"></h4>
         </div>     
         <div class="botones">
             <button id="edit-button">Cambiar Datos</button>
@@ -84,7 +83,7 @@
         
     </div>
     <div class="edit-profile" id="edit-profile" style="display: none;">
-        <form action="" id="formulario">
+        <form action="" id="formularioEdit">
             <h2>Editar Datos</h2>
             <div class="inputbox">
                 <label for="edit-cedula">Cédula:</label>
@@ -102,7 +101,16 @@
                 <label for="edit-username">Nombre de Usuario:</label>
                 <input type="text" id="edit-username">
             </div>
-            <button type="submit" id="btn_submit">Cambiar Datos</button>
+            <div class="botones">
+                <button type="submit" id="btn_submit">Cambiar Datos</button>
+            </div>
+           
         </form>
+        <!-- <div class="botones">
+            <button  id="btn_submit">Cambiar Datos</button>
+        </div> -->
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/menu.js" defer></script>
+<script src="/js/perfil.js" defer></script>
