@@ -9,17 +9,28 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     if(dataframe){
         dataframe.forEach(element => {
             let tr = document.createElement("tr");
+
             let td_nombre = document.createElement("td");
             let td_precio = document.createElement("td");
             let td_cantidad = document.createElement("td");
             let td_agregar = document.createElement("td");
+
+            let btn_agregar = document.createElement("ion-icon");
+            btn_agregar.setAttribute("name", "add-circle-outline");
+            btn_agregar.setAttribute("style", "cursor: pointer");
+            btn_agregar.classList.add("icon-large", "btn_addItem")
+
+
             td_nombre.textContent = element.Nombre
             td_precio.textContent = element.Precio
             td_cantidad.textContent = element.Cantidad
-            //td_agregar = 
+            td_agregar.appendChild(btn_agregar)
+           
+
             tr.appendChild(td_nombre);
             tr.appendChild(td_precio);
             tr.appendChild(td_cantidad);
+            tr.appendChild(td_agregar);
             tbody.appendChild(tr);
         });
     }
