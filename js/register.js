@@ -20,7 +20,7 @@ formulario.addEventListener('submit', async (e) => {
                 "Cedula": ''
             })
         })
-    
+        window.name = formulario.username.value;
         window.location.href = "/html/menu.html";
     }else{
         alert('Las contraseñas no coinciden')

@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (result.isConfirmed) {
                     var changes = null;
                     if (edit_new_password.value != '' && edit_new_password.value != null) {
-                     
                         changes = {
                             "USUARIO": edit_username.value,
                             "CONTRASENA": edit_new_password.value,

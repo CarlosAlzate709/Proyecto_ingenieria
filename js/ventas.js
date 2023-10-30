@@ -20,12 +20,10 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             btn_agregar.setAttribute("style", "cursor: pointer");
             btn_agregar.classList.add("icon-large", "btn_addItem")
 
-
             td_nombre.textContent = element.Nombre
             td_precio.textContent = element.Precio
             td_cantidad.textContent = element.Cantidad
             td_agregar.appendChild(btn_agregar)
-           
 
             tr.appendChild(td_nombre);
             tr.appendChild(td_precio);
@@ -33,6 +31,18 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             tr.appendChild(td_agregar);
             tbody.appendChild(tr);
         });
+    }
+    const botonesAñadir = document.querySelectorAll('.btn_addItem');
+
+    for(let i = 0; i < botonesAñadir.length; i++){
+        botonesAñadir[i].addEventListener('click', function (e){
+            const fila_datos = this.closest('tr');
+            if (fila_datos) {
+                console.log(i)
+                lbl_nombre.textContent = element.Nombre[i]
+                
+            }
+        })
     }
 })
 
@@ -47,3 +57,5 @@ async function datos(){
         console.log(`error al conectar ${error}`);
     }
 }
+
+
