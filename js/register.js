@@ -20,6 +20,7 @@ formulario.addEventListener('submit', async (e) => {
                 "Cedula": ''
             })
         })
+        window.carrito = JSON.stringify([])
         window.name = formulario.username.value;
         window.location.href = "/html/menu.html";
     }else{

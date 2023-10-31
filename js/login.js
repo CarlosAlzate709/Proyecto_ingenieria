@@ -19,6 +19,8 @@ formulario.addEventListener('submit', async (e) => {
             find = true;
             window.name = usuario.USUARIO;
 
+            window.carrito = JSON.stringify([])
+
         } else if ((usuario.GMAIL === user && usuario.CONTRASENA != password) || (usuario.GMAIL != user && usuario.CONTRASENA === password)) {
             Swal.fire({
                 icon: 'warning',
@@ -37,6 +39,7 @@ formulario.addEventListener('submit', async (e) => {
     })
 
     if (find) {
+
 
         Swal.fire({
             icon: 'success',

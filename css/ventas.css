@@ -11,7 +11,7 @@ body {
     font-weight: 300;
     line-height: 1.42em;
     color:#4B4A4B;
-    background-color:#FFDAC4;
+    background-color:white;
 }
 
 /* VARIABLES */
@@ -99,11 +99,13 @@ body {
     color: #000000;
 }
 
-#lbl_nombre{
+#lbl_nombre, #lbl_precio_cantidad{
     color: #000000;
     font-size: 600;
     font-weight: bold;
 }
+
+
 
 ::placeholder{
     color:#C7E1FF;
