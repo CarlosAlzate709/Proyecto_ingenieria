@@ -22,7 +22,7 @@ formulario.addEventListener('submit', async (e) => {
         })
         window.carrito = JSON.stringify([])
         window.name = formulario.username.value;
-        window.location.href = "/html/menu.html";
+        window.location.href = "/html/stock.html";
     }else{
         alert('Las contraseñas no coinciden')
         formulario.username.value = "";

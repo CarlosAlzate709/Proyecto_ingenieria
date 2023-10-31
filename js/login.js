@@ -51,7 +51,7 @@ formulario.addEventListener('submit', async (e) => {
             allowEnterKey: true
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/html/menu.html";
+                window.location.href = "/html/stock.html";
             }
         })
         setTimeout(() => {

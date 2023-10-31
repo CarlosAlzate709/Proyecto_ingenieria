@@ -59,15 +59,17 @@ document.addEventListener('DOMContentLoaded', async (e) => {
                         lbl_precio_cantidad.textContent = 0
                     }
 
-                })
-
-                btn_añadir_carrito.addEventListener('click', () => {
-                    AñadirItem();
-                })
+                })              
             }
         })
 
     }
+    btn_añadir_carrito.addEventListener('click', async() => {
+       let prueba = await AñadirItem(lbl_precio_cantidad.textContent, input_cantidad.value, lbl_nombre.textContent);
+        // let precioTotal = lbl_precio_cantidad.textContent
+        // let cantidadComprada = input_cantidad.value
+        // let product = lbl_nombre.textContent
+    })
 })
 
 async function datos() {
@@ -83,23 +85,49 @@ async function datos() {
 }
 
 
-async function AñadirItem() {
+async function AñadirItem(precio, cantidad, nombre) {
 
     if (input_cantidad.value != 0 || null) {
-        let precioTotal = lbl_precio_cantidad.textContent
-        let cantidadComprada = input_cantidad.value
-        let product = lbl_nombre.textContent
+       
 
-        var json = {
-            NombreProducto: product,
-            CantComprada: cantidadComprada,
-            PrecioPagar: precioTotal
+        let json = {
+            NombreProducto: nombre,
+            CantComprada: cantidad,
+            PrecioPagar: precio
         }
 
-        window.carrito.push(json)
-
         
-        console.log(window.carrito)
+        
+        try{
+            const añadir = await fetch('https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3', {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "Name": json.NombreProducto,
+                    "Price": json.PrecioPagar,
+                    "Cant": json.CantComprada
+                })
+            })
+
+            if (añadir.status == 200){
+                Swal.fire({
+                    title: 'Agregado al carrito',
+                    icon: 'sucess',
+                    text: 'Producto añadido al carrito'
+                })
+
+                // setTimeout(() => {
+                //     location.reload()
+                   
+                // }, 2000);
+        
+            }
+        }catch(err){
+            console.log(err);
+        }
     }
 
 }
