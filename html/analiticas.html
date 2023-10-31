@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dashboard</title>
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!--  CSS -->
+    
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+    <link rel="stylesheet" href="/css/analiticas.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <!--  JS -->
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/analiticas.js" defer></script>
+</head>
+<body>
+    <div class="menu-dashboard">
+        <!-- MENU USUARIO -->
+        <div class="top-menu">
+            <div class="logo">
+                <img src="/images/logo.png">
+                <span id="Nombre_usuario">Nombre de usuario</span>
+            </div>
+            <div class="toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+        
+        <!-- MENU -->
+        <section class="menu">
+            <div class="enlace">
+                <i class="bx bx-grid-alt"></i>
+                <span id="span_menu_pago">Menu</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-user"></i>
+                <span id="span_usuarios">Usuarios</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-grid-alt"></i>
+                <span id="span_stock">Stock</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-message-square"></i>
+                <span id="span_ventas">Ventas</span>
+            </div>
+
+            <div class="enlace">
+                <i class="bx bx-cog"></i>
+                <span id="span_analitica">Analitica</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="DataMark"">
+            <table class="list-view">
+                <thead>
+                    <tr>
+                        <th><h1>Producto</h1></th>
+                        <th><h1>Cantidad Vendida</h1></th>
+                        <th><h1>Total Vendido</h1></th>
+                    </tr>
+                </thead>
+                <tbody  id="lista_ventas"></tbody>
+            </table>
+        </div>
+       <div class="graficas">
+        <canvas id="grafico" width="400" height="400"></canvas>
+       </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
