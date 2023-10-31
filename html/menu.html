@@ -59,21 +59,27 @@
 
     <section class="main">
         <div class="pagina">
-            <ul class="list-view">
-                <li>Elemento 1</li>
-                <li>Elemento 2</li>
-                <li>Elemento 3</li>
-            </ul>
+            <table class="list-view">
+                <thead>
+                    <tr>
+                        <th><h1>Producto</h1></th>
+                        <th><h1>Precio</h1></th>
+                        <th><h1>Cantidad</h1></th>
+                    </tr>
+                </thead>
+                <tbody  id="lista_ventas"></tbody>
+            </table>
             <div class="Registradora">
                 <span class="label">Total de productos: </span>
                 <span class="valores" id="lbl_total_productos">0</span>
                 <span class="label">Total a pagar: </span>
                 <span class="valores" id="lbl_totalpagar">0</span>
-                <input type="number" id="input_pago" placeholder="ingrese el dinero">
+                <input type="number" id="input_pago" placeholder="ingrese el dinero" min="0">
                 <br>
                 <button type="submit" id="btn_pago">PAGAR</button>
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

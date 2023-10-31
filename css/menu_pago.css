@@ -3,6 +3,8 @@
 .pagina{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 450vh;
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -14,7 +16,6 @@
     width: 60vh;
     height: 60vh;
     float: right;
-    margin-top: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,29 +72,67 @@
     color: black;
 }
 
-.list-view{
-    float: left;
-    width: 50vh;
-    margin-top: 2   vh;
-    margin-left: 45vh;  
-    color: #000000;
-    list-style-type: none;
-    padding: 0; 
+.list-view th h1 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: #FFFFFF;
 }
 
-.list-view li {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #000000; 
-    color: white; 
-    border-radius: 5px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+.list-view {
+    text-align: left;
+    overflow: hidden;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
+    width: 100vh;
+    margin-left: 35vh;
 }
 
-.list-view li:hover {
-    transition: 0.6s;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+.list-view td, .list-view th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left:2%;  
+    text-align: center;
 }
 
+.list-view th h1 {
+    
+    text-align: center;
+}
+
+
+.list-view tr:nth-child(odd) {
+    background-color: #FFEDD8;
+}
+
+.list-view tr:nth-child(even) {
+    background-color: #FFDAC4;
+}
+
+.list-view tr:nth-child(odd):hover {
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+.list-view tr:nth-child(even):hover {
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+.list-view th {
+    background-color: #151d1b;
+}
+
+.list-view td:first-child, .list-view tr { 
+    color: #000000; 
+}
+
+.list-view td:first-child:hover{ 
+    color: #ffffff; 
+    cursor: pointer;
+}
 

@@ -25,21 +25,21 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             td_cantidad.textContent = element.Cantidad
             td_agregar.appendChild(btn_agregar)
 
-            tr.appendChild(td_nombre);
-            tr.appendChild(td_precio);
-            tr.appendChild(td_cantidad);
-            tr.appendChild(td_agregar);
-            tbody.appendChild(tr);
+            if(td_nombre.textContent && td_precio.textContent && td_cantidad.textContent){
+                tr.appendChild(td_nombre);
+                tr.appendChild(td_precio);
+                tr.appendChild(td_cantidad);
+                tr.appendChild(td_agregar);
+                tbody.appendChild(tr);
+            }
         });
     }
     const botonesAñadir = document.querySelectorAll('.btn_addItem');
 
-
+    let position = 0;
     for (let i = 0; i < botonesAñadir.length; i++) {
         botonesAñadir[i].addEventListener('click', function (e) {
             e.preventDefault();
-            // lbl_nombre.textContent = '';
-            // input_cantidad = 0
             const fila_datos = this.closest('tr');
 
             if (fila_datos) {
@@ -55,20 +55,17 @@ document.addEventListener('DOMContentLoaded', async (e) => {
 
                     if (operation >= 0) {
                         lbl_precio_cantidad.textContent = operation
+                        position = i;
                     } else {
                         lbl_precio_cantidad.textContent = 0
                     }
-
                 })              
             }
         })
 
     }
     btn_añadir_carrito.addEventListener('click', async() => {
-       let prueba = await AñadirItem(lbl_precio_cantidad.textContent, input_cantidad.value, lbl_nombre.textContent);
-        // let precioTotal = lbl_precio_cantidad.textContent
-        // let cantidadComprada = input_cantidad.value
-        // let product = lbl_nombre.textContent
+        await AñadirItem(lbl_precio_cantidad.textContent, input_cantidad.value, lbl_nombre.textContent, position);
     })
 })
 
@@ -85,49 +82,60 @@ async function datos() {
 }
 
 
-async function AñadirItem(precio, cantidad, nombre) {
+async function AñadirItem(precio, cantidad, nombre, position) {
+    let url = 'https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3/' + position
+    const url_fetch = await fetch(url)
+    const verficacion = await url_fetch.json()
+    console.log(verficacion)
+    console.log(verficacion[0].Cantidad)
+    if(parseInt(input_cantidad.value) > verficacion[0].Cantidad){
+        Swal.fire({
+            title: "Excedida la capacidad",
+            icon: "warning",
+            text: "El stock no tiene la capacidad solicitada"
+        })
+    }else{
+        if (input_cantidad.value != 0 && input_cantidad.value != null && lbl_nombre.textContent != "Nombre") {
 
-    if (input_cantidad.value != 0 || null) {
-       
-
-        let json = {
-            NombreProducto: nombre,
-            CantComprada: cantidad,
-            PrecioPagar: precio
-        }
-
-        
-        
-        try{
-            const añadir = await fetch('https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3', {
-                method: 'POST',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    "Name": json.NombreProducto,
-                    "Price": json.PrecioPagar,
-                    "Cant": json.CantComprada
-                })
-            })
-
-            if (añadir.status == 200){
-                Swal.fire({
-                    title: 'Agregado al carrito',
-                    icon: 'sucess',
-                    text: 'Producto añadido al carrito'
-                })
-
-                // setTimeout(() => {
-                //     location.reload()
-                   
-                // }, 2000);
-        
+            let json = {
+                NombreProducto: nombre,
+                CantComprada: cantidad,
+                PrecioPagar: precio
             }
-        }catch(err){
-            console.log(err);
+            
+            console.log(json)
+            try{
+                const añadir = await fetch('https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3', {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "Name": json.NombreProducto,
+                        "Price": json.PrecioPagar,
+                        "Cant": json.CantComprada
+                    })
+                })
+    
+                if (añadir.status == 200){
+                    Swal.fire({
+                        title: 'Agregado al carrito',
+                        icon: 'sucess',
+                        text: 'Producto añadido al carrito'
+                    })
+    
+                    // setTimeout(() => {
+                    //     location.reload()
+                    // }, 2000);
+                    input_cantidad.value = null
+                    lbl_nombre.textContent = "Nombre"
+                    lbl_precio_cantidad.textContent = "Precio de la cantidad"
+                    operation = 0
+                }
+            }catch(err){
+                console.log(err);
+            }
         }
     }
-
 }
