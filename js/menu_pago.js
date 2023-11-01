@@ -64,50 +64,19 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             let pago = url.map(item => item.Nombre)
             console.log(pago)
             console.log("comprobar");
-            for (let i = 0; i < carrito_compras.length; i++) {
-                const productoEnCarrito = carrito_compras[i];
-            
-                const nombreProductoEnCarrito = productoEnCarrito.Nombre_producto;
-                const cantidadProductoEnCarrito = productoEnCarrito.Cantidad;
-            
-                const posicionEnPago = pago.indexOf(nombreProductoEnCarrito) + 2;
-                //estamos a nadaaaaaaaaaaaaaaaaaaa
-                if (posicionEnPago !== -1) {
-                    const url_pago = `${'https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3'}/${posicionEnPago}`;
-                    try{
-                        const edit_pago = await fetch(url_pago, {
-                            method: 'PUT',
-                            mode: "cors",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                                Nombre: nombreProductoEnCarrito,
-                                Cantidad: Cantidad - cantidadProductoEnCarrito
-                            }),
-                        })
-                        if (edit_pago.ok) {
-                            Swal.fire('Producto Comprado', '', 'success');
-                            setTimeout(() => {
-                                location.reload();
-                            }, 4000);
+            let consulta_posicion = await datos()
+                for(let i = 0; i < consulta_posicion.length; i++){
+                    for(let y = 0; y < consulta_posicion.length; y++){
+                        if(consulta_posicion[i].Nombre == consulta_posicion[y].Name){
+                            let resta = consulta_posicion[i].Cantidad - consulta_posicion[y].Cant
+                            console.log(resta);
+                            if(resta >= 0){
+                                actualizacion(i, resta)
+                            }
                         }
-                    }catch (err) {
-                        console.log("Error al actualizar ", err)
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                        })
                     }
-                } else {
-                    Swal.fire({
-                        title: "Fatal error",
-                        icon: "warning",
-                        text: "El stock tiene errores con los productos pedidos"
-                    })
                 }
-            }
+            remover_carrito()
         }
     })
     }
@@ -123,5 +92,69 @@ async function datos() {
         }
     } catch (error) {
         console.log(`error al conectar ${error}`);
+    }
+}
+
+async function actualizacion(posicion, cantidad) {
+        const url_pago = `${'https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3'}/${posicion}`;
+        try{
+            const edit_pago = await fetch(url_pago, {
+                method: 'PATCH',
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    Cantidad: cantidad
+                }),
+            })
+            if (edit_pago.ok) {
+                Swal.fire('Producto Comprado', '', 'success');
+                setTimeout(() => {
+                    location.reload();
+                }, 4000);
+            }
+        }catch (err) {
+            console.log("Error al comprar ", err)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+        }
+}
+
+async function remover_carrito(){
+    const limpieza = await datos()
+    for(let i = 0; i < limpieza.length; i++){
+        if(limpieza[i].Name){
+            const url_remover = `${'https://sheet.best/api/sheets/095a1cf0-bb91-410d-b2b1-76a9ee05baf3'}/${i}`;
+        try{
+            const edit_remover = await fetch(url_remover, {
+                method: 'PUT',
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    Name: null,
+                    Price: null,
+                    Cant: null
+                }),
+            })
+            if (edit_remover.ok) {
+                setTimeout(() => {
+                    location.reload();
+                }, 4000);
+            }
+        }catch (err) {
+            console.log("Error al remover ", err)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+        }
+        }
     }
 }

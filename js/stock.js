@@ -181,7 +181,6 @@ document.addEventListener('DOMContentLoaded', async (e) => {
                                 // Swal.close();
                             }
                         })
-
                     }
                 });
             }
