@@ -70,4 +70,8 @@ Stock.addEventListener('click', ()=>{
 
 usuarios.addEventListener('click', ()=>{
     window.location.href = "/html/perfil.html"
-} )
+})
+
+enlaceAnalitica.addEventListener('click', ()=>{
+    window.location.href = "/html/analiticas.html"
+})

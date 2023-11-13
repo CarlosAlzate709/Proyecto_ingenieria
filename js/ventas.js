@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
             btn_agregar.classList.add("icon-large", "btn_addItem")
 
             td_nombre.textContent = element.Nombre
-            td_precio.textContent = element.Precio
+            td_precio.textContent = (element.Precio) * 1.29
             td_cantidad.textContent = element.Cantidad
             td_agregar.appendChild(btn_agregar)
 
