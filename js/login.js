@@ -3,7 +3,6 @@ const formulario = document.getElementById("formulario")
 /////////////////////////////////////////////////////////
 const forget = document.getElementById("forget")
 
-
 formulario.addEventListener('submit', async (e) => {
     e.preventDefault()
 
@@ -18,7 +17,6 @@ formulario.addEventListener('submit', async (e) => {
         if (usuario.GMAIL === user && usuario.CONTRASENA === password) {
             find = true;
             window.name = usuario.USUARIO;
-
             window.carrito = JSON.stringify([])
 
         } else if ((usuario.GMAIL === user && usuario.CONTRASENA != password) || (usuario.GMAIL != user && usuario.CONTRASENA === password)) {
@@ -35,9 +33,7 @@ formulario.addEventListener('submit', async (e) => {
             document.getElementById('inputEmail').value = "";
             document.getElementById('pass').value = "";
         }
-
     })
-
     if (find) {
 
 
@@ -51,11 +47,12 @@ formulario.addEventListener('submit', async (e) => {
             allowEnterKey: true
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/html/stock.html";
+                window.location.href = "/html/menu.html";
             }
         })
         setTimeout(() => {
             window.location.href = "/html/menu.html";
+            
             //header('Location: ./html/menu.php');
         }, 2000);
 
@@ -218,8 +215,6 @@ forget.addEventListener('click', async (e) => {
                     allowEnterKey: true
                 })
             }
-
-
         }
     }
 })

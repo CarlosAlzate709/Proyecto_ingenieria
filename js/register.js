@@ -17,7 +17,8 @@ formulario.addEventListener('submit', async (e) => {
                 "USUARIO": formulario.username.value,
                 "CONTRASENA": formulario.pass.value,
                 "GMAIL": formulario.email.value,
-                "Cedula": ''
+                "Cedula": '',
+                "ROL": "usr"
             })
         })
         window.carrito = JSON.stringify([])
