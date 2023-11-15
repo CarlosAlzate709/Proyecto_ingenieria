@@ -158,11 +158,11 @@ body {
 }
 
 .list-view tr:nth-child(odd) {
-    background-color: #FFEDD8;
+    background-color: #bea2a221;
 }
 
 .list-view tr:nth-child(even) {
-    background-color: #FFDAC4;
+    background-color: #ffffff;
 }
 
 .list-view th {

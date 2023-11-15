@@ -3,13 +3,12 @@ const menuDashboard = document.querySelector(".menu-dashboard")
 const iconoMenu = toggle.querySelector("i")
 const enlacesMenu = document.querySelectorAll(".enlace")
 const enlaceStock = document.getElementById("btn_stock")
-const enlaceAnalitica = document.getElementById("btn_analitica")
 const nombre_usuario = document.getElementById("Nombre_usuario")
 const menu_pago = document.getElementById('span_menu_pago');
 const usuarios = document.getElementById('span_usuarios');
 const Stock = document.getElementById('span_stock');
 const ventas = document.getElementById('span_ventas');
-const analitica = document.getElementById('span_analitica');
+
 
 nombre_usuario.textContent = window.name;
 
@@ -70,8 +69,4 @@ Stock.addEventListener('click', ()=>{
 
 usuarios.addEventListener('click', ()=>{
     window.location.href = "/html/perfil.html"
-})
-
-enlaceAnalitica.addEventListener('click', ()=>{
-    window.location.href = "/html/analiticas.html"
 })
