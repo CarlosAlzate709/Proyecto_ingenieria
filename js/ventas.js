@@ -88,7 +88,7 @@ async function AñadirItem(precio, cantidad, nombre, position) {
     const verficacion = await url_fetch.json()
     console.log(verficacion)
     console.log(verficacion[0].Cantidad)
-    if(parseInt(input_cantidad.value) > verficacion[0].Cantidad){
+    if(parseInt(input_cantidad.value) > verficacion[0].Cantidad || input_cantidad.value < 0){
         Swal.fire({
             title: "Excedida la capacidad",
             icon: "warning",

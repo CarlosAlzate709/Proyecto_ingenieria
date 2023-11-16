@@ -32,7 +32,7 @@ formulario.addEventListener('submit', async (e) => {
             })
             window.carrito = JSON.stringify([])
             window.name = formulario.username.value;
-            window.location.href = "/html/stock.html";
+            window.location.href = "/html/index.html";
         } else {
             Swal.fire({
                 icon: 'warning',
